@@ -1,5 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
+import { View, Image } from 'react-native';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
@@ -20,16 +21,12 @@ export default function BottomTabNavigator({ navigation, route }) {
         name="Home"
         component={HomeScreen}
         options={{
-          title: 'Get Started',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
-        }}
-      />
-      <BottomTab.Screen
-        name="Links"
-        component={LinksScreen}
-        options={{
-          title: 'Resources',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+          title: 'Baby Racoon Nursery',
+          tabBarIcon: ({ focused }) =>         
+        <Image
+          style={{ width: 25, height: 25 }}
+          source={{ uri: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/241/raccoon_1f99d.png' }}
+        />,
         }}
       />
     </BottomTab.Navigator>
@@ -41,8 +38,8 @@ function getHeaderTitle(route) {
 
   switch (routeName) {
     case 'Home':
-      return 'Starting Page';
+      return 'CoonGaze';
     case 'Links':
-      return 'Links to learn more';
+      return 'Link Page';
   }
 }

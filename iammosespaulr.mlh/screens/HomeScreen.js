@@ -1,43 +1,34 @@
 import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { WebView } from 'react-native-webview';
+import { Image, Platform, StyleSheet, Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-
+import { Video } from 'expo-av';
 import { MonoText } from '../components/StyledText';
+import { Dimensions } from 'react-native';
+import * as ScreenOrientation from 'expo-screen-orientation';
+
+const screenWidth = Math.round(Dimensions.get('window').width);
+const screenHeight = Math.round(Dimensions.get('window').height);
 
 export default function HomeScreen() {
-  return (
-    <View style={styles.container}>
-      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
-        </View>
-
-        <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
-
-          <Text style={styles.getStartedText}>The Racoon Nursery</Text>
-        </View>
-
-      </ScrollView>
-
-      <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>With a few tricks up it's sleeve</Text>
-
-        <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>navigation/BottomTabNavigator.js</MonoText>
-        </View>
+        ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT);
+        return(
+      <View style={styles.container}>
+        <WebView
+           originWhitelist={['*']}
+           scalesPageToFit={true}
+           bounces={true}
+           javaScriptEnabled
+           style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+           source={{ html: '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/BMlO4yibjzk" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' }}
+         />
       </View>
-    </View>
-  );
-}
+        );
+    }
 
 HomeScreen.navigationOptions = {
   header: null,
@@ -123,7 +114,7 @@ const styles = StyleSheet.create({
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
-    fontWeight: 'bolder',
+    fontWeight: 'bold',
   },
   tabBarInfoContainer: {
     position: 'absolute',
