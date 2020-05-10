@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "CoonGaze",
-    "slug": "coongaze",
+    "name": "RacoonGaze",
+    "slug": "racoongaze",
     "platforms": [
       "ios",
       "android",
@@ -24,11 +24,11 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.iammosespaurlr.coongaze",
+      "bundleIdentifier": "com.iammosespaurlr.racoongaze",
       "buildNumber": "1.0.0"
     },
     "android": {
-      "package": "com.iammosespaurlr.coongaze",
+      "package": "com.iammosespaurlr.racoongaze",
       "versionCode": 1
     },
     "web": {

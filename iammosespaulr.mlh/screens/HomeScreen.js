@@ -18,13 +18,9 @@ export default function HomeScreen() {
         <WebView
            originWhitelist={['*']}
            scalesPageToFit={true}
-           bounces={true}
+           bounces={false}
            javaScriptEnabled
-           style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-           source={{ html: '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/BMlO4yibjzk" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' }}
+           source={{ html: '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/BMlO4yibjzk" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Hi There</iframe>' }}
          />
       </View>
         );
